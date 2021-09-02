@@ -16,6 +16,7 @@ User.add({
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 });
 
+// canAccessKeystone属性来说明用户是否可以访问 Keystone 的管理 UI
 // Provide access to Keystone
 User.schema.virtual('canAccessKeystone').get(function () {
 	return this.isAdmin;

@@ -7,7 +7,7 @@ var Types = keystone.Field.Types;
  */
 
 /**
- * List被用作构造新列表的原型
+ * List被用作构造新列表的模型
  */
 var Post = new keystone.List('Post', {
 	map: { name: 'title' },
