@@ -3,8 +3,9 @@ var Types = keystone.Field.Types;
 
 /**
  * User Model
- * ==========
+ * 1、字段类型 https://v4.keystonejs.com/api/field/
  */
+
 var User = new keystone.List('User');
 
 User.add({

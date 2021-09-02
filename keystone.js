@@ -10,7 +10,7 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'node-art-keystone',
+	'name': 'node-art-keystone', // MongoDB 中的数据库的名称。
 	'brand': 'node-art-keystone',
 
 	'less': 'public',
@@ -21,10 +21,10 @@ keystone.init({
 
 	'emails': 'templates/emails',
 
-	'auto update': true,
+	'auto update': true, // 设置true为启用 Keystone 的应用程序更新功能
 	'session': true,
-	'auth': true,
-	'user model': 'User',
+	'auth': true, // 将此设置为true访问 Keystone 管理 UI 需要用户登录
+	'user model': 'User', //用户模块名称
 });
 
 // Load your project's Models
@@ -49,6 +49,7 @@ keystone.set('nav', {
 	posts: ['posts', 'post-categories'],
 	galleries: 'galleries',
 	users: 'users',
+	// test: 'test',
 });
 
 // Start Keystone to connect to your database and initialise the web server

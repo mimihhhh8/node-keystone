@@ -6,6 +6,9 @@ var Types = keystone.Field.Types;
  * ==========
  */
 
+/**
+ * List被用作构造新列表的原型
+ */
 var Post = new keystone.List('Post', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true },
@@ -13,7 +16,7 @@ var Post = new keystone.List('Post', {
 
 Post.add({
 	title: { type: String, required: true },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true }, // select
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	image: { type: Types.CloudinaryImage },
