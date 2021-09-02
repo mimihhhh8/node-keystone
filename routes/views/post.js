@@ -3,7 +3,7 @@ var keystone = require('keystone');
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
-	var locals = res.locals;
+	var locals = res.locals;// 传到视图模板
 
 	// Set locals
 	locals.section = 'blog';
@@ -24,7 +24,16 @@ exports = module.exports = function (req, res) {
 
 		q.exec(function (err, result) {
 			locals.data.post = result;
-			next(err);
+			if (err) {
+				next(err);
+			} else {
+				var views = result.views != null ? result.views + 1 : 1;
+				result.set({
+					views: views,
+				}).save(function (err) {
+					next(err);
+				});
+			}
 		});
 
 	});

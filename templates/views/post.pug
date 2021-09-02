@@ -23,6 +23,8 @@ block content
 									|  
 						if data.post.author
 							| by #{data.post.author.name.first}
+						if data.post.views 
+							| views #{data.post.views}
 				.post
 					if data.post.image.exists
 						.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive

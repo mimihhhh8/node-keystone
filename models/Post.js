@@ -19,6 +19,7 @@ Post.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true }, // select
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+	views: { type: Number, index: true, default: 1 },
 	image: { type: Types.CloudinaryImage },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
@@ -30,6 +31,6 @@ Post.add({
 Post.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
-
-Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
+// 对应管理界面的展示
+Post.defaultColumns = 'title,views, state|20%, author|20%, publishedDate|20%';
 Post.register();

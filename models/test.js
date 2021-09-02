@@ -8,6 +8,8 @@ Test.add({
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	password: { type: Types.Password, initial: true },
 	canAccessKeystone: { type: Boolean, initial: true },
+	title: { type: String, index: true },
+	content: { type: Types.Html, index: true },
 });
 
 Test.register();
